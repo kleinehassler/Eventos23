@@ -1,0 +1,13 @@
+C:\ProyectoFinalEventos\Entidades\bin\Debug\net7.0\Entidades.deps.json
+C:\ProyectoFinalEventos\Entidades\bin\Debug\net7.0\Entidades.dll
+C:\ProyectoFinalEventos\Entidades\bin\Debug\net7.0\Entidades.pdb
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.AssemblyInfoInputs.cache
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.AssemblyInfo.cs
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.csproj.CoreCompileInputs.cache
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.dll
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\refint\Entidades.dll
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.pdb
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\ref\Entidades.dll
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.csproj.AssemblyReference.cache
+C:\ProyectoFinalEventos\Entidades\obj\Debug\net7.0\Entidades.sourcelink.json

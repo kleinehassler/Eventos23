@@ -1,0 +1,12 @@
+C:\ProyectoFinalEventos\Utilidades\bin\Debug\net7.0\Utilidades.deps.json
+C:\ProyectoFinalEventos\Utilidades\bin\Debug\net7.0\Utilidades.dll
+C:\ProyectoFinalEventos\Utilidades\bin\Debug\net7.0\Utilidades.pdb
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.AssemblyInfoInputs.cache
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.AssemblyInfo.cs
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.csproj.CoreCompileInputs.cache
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.dll
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\refint\Utilidades.dll
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.pdb
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\ref\Utilidades.dll
+C:\ProyectoFinalEventos\Utilidades\obj\Debug\net7.0\Utilidades.sourcelink.json

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiEventos</name>
+    </assembly>
+    <members>
+        <member name="T:ApiEventos.Controllers.EventoController">
+            <summary>
+            Controlador para manejo de la tabla eventos
+            </summary>
+        </member>
+        <member name="M:ApiEventos.Controllers.EventoController.Listar(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Permite listar la informacion de ventos
+            </summary>
+            <param name="parametros"></param>
+            <returns>Datos del evento</returns>
+        </member>
+    </members>
+</doc>

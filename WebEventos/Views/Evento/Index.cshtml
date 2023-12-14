@@ -1,0 +1,55 @@
+﻿@model EventoModel
+@{
+
+    ViewData["Title"] = "Lista de Eventos";
+
+}
+<div class="container">
+    <div class="section">
+        <h5 class="pagetitle">Lista de Eventos</h5>
+    </div>
+</div>
+
+
+<div class="container full">
+  <div class="section">
+
+        <ul class="collection mailbox">
+
+  @if (Model.listaEventos != null)
+{
+    @if (Model.listaEventos.Count > 0)
+    {
+        @foreach (var item in Model.listaEventos)
+        {
+                        <li class="collection-item blog-info  boxed z-depth-1">
+                            <div class="col s12">
+                                <div class="blog-info  boxed z-depth-1">
+                                    <a href="@ViewData["HOST_URL"]/Evento/Ver/?idevento=@item.Idevento">
+                                        <h5 class="title z-depth-0">@item.Nombre</h5>
+                                    </a>
+                                    <span class="from">
+                                        <a class="small" href="#!">Presupuesto : @item.Presupuesto</a>
+                                    </span>
+                                    <div class="secondary-content">
+                                        <a href="#!" class="btn-eliminar" idevento="@item.Idevento"><i class="mdi mdi-delete"></i></a>
+                                        <a href="Evento/Registro?idevento=@item.Idevento"><i class="mdi mdi-pencil"></i></a>
+                                    </div>
+                                    <p class="bot-0 text">Comentario : @item.Comentario</p>
+                                    <span class="time">
+                                        <span class="new badge blue lighten-2" data-badge-caption="">@item.TipoEvento</span>
+                                        <h6 class="top-0 right-align">@item.Fecha</h6>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </li>
+        }
+    }
+
+}
+
+</ul>
+  </div>
+
+</div>

@@ -1,0 +1,118 @@
+﻿@{
+    Layout = "_LayoutLogin";
+}
+
+
+<div class="login-bg access-login"></div>
+
+
+<div class="container login-area">
+    <div class="section">
+
+
+        <h3 class="bot-20 center white-text">Login</h3>
+
+
+        <div class="row">
+
+            <div class="input-field col s10 offset-s1">
+                <input id="username" name="username" type="text" class="validate">
+                <label for="username">Email</label>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-field col s10 offset-s1">
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+
+        </div>
+
+
+        <div class="row center">
+            <a class="waves-effect waves-light btn-large bg-primary btn-login">Login</a>
+            <div class="spacer"></div>
+            <div class="links">
+
+                <a href="ui-pages-forgotpassword.html" class='waves-effect'>Forgot Password</a><span class="sep">|</span><a href="ui-pages-register.html" class='waves-effect'>Register</a>
+            </div>
+            <div class="spacer"></div>
+            <!-- <div class="links">
+              <a href="#!.html" class='waves-effect'>    Go Back
+              </a>  </div> -->
+
+            <div class="spacer"></div>
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+</div>
+
+
+<div id="modal_general" class="modal red bottom-sheet">
+    <div class="modal-content white-text">
+        <h4>Error</h4>
+        <p>Texto</p>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $(".modal").modal();
+        $(".btn-login").click(function () {
+
+            console.log("click al boton login");
+
+            $('.preloader-background').delay(0).fadeIn('slow');
+
+            // Datos de inicio de sesión
+            var credentials = {
+                Usuario1: $("#username").val(),
+                Clave: $("#password").val()
+            };
+
+            // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+            var loginUrl = "login/autenticar";
+
+            // Realizar la solicitud POST utilizando jQuery
+            $.ajax({
+                url: loginUrl,
+                type: "POST",
+                contentType: "application/json", // Tipo de contenido que estás enviando (JSON)
+                data: JSON.stringify(credentials), // Convertir los datos a formato JSON
+                success: function (response) {
+                    console.log("correcto");
+                    $('.preloader-background').delay(0).fadeOut('slow');
+                    response = JSON.parse(response);
+                    console.log(response);
+                    if (response.success) {
+
+                        M.toast({ html: response.message, classes: ' teal lighten-2 white-text' });
+                        window.location.href = 'Home';
+                        return;
+                    } else {
+                        $('#modal_general h4').html('Error al iniciar sesion');
+                        $('#modal_general p').html(response.message);
+                        $('#modal_general').modal('open');
+                    }
+                },
+                error: function (error) {
+                    console.log("error");
+                    $('.preloader-background').delay(0).fadeOut('slow');
+                    $('.modal').modal('open');
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>

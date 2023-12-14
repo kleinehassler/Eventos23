@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "mv628Q2QthQpGm6K/xe3eo1IKGIDQFoSM5MQc8bmDL4ZKd7YUdE1fbC122FyMNbNjvXqH6QvkWej1QZ9q92jJQ==",
+  "success": true,
+  "projectFilePath": "C:\\ProyectoFinalEventos\\WebEventos\\WebEventos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.14\\microsoft.entityframeworkcore.abstractions.7.0.14.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

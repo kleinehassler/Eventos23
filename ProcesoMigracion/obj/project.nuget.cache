@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gAUZUjLt73WupD40GqOFSMm1PMlkN9CmqlEtP52L/CtQqCnhH3vEEKj6leolFUF+2V9HZPKnxQdOzUTyNCtmaA==",
+  "success": true,
+  "projectFilePath": "C:\\ProyectoFinalEventos\\ProcesoMigracion\\ProcesoMigracion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

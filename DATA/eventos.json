@@ -1,0 +1,212 @@
+[
+    {
+        "idevento": 1,
+        "nombre": "Conferencia de Desarrolladores",
+        "fecha": "2023-07-10",
+        "presupuesto": 10000.00,
+        "categoria": "Tecnología"
+    },
+    {
+        "idevento": 2,
+        "nombre": "Boda de Laura y Miguel",
+        "fecha": "2023-08-20",
+        "presupuesto": 20000.00,
+        "categoria": "Bodas"
+    },
+    {
+        "idevento": 3,
+        "nombre": "Fiesta de Graduación",
+        "fecha": "2023-09-30",
+        "presupuesto": 5000.00,
+        "categoria": "Celebraciones"
+    },
+    {
+        "idevento": 4,
+        "nombre": "Lanzamiento de Producto",
+        "fecha": "2023-10-15",
+        "presupuesto": 8000.00,
+        "categoria": "Negocios"
+    },
+    {
+        "idevento": 5,
+        "nombre": "Taller de Marketing Digital",
+        "fecha": "2023-11-05",
+        "presupuesto": 3000.00,
+        "categoria": "Educación"
+    },
+    {
+        "idevento": 6,
+        "nombre": "Exposición de Arte",
+        "fecha": "2023-12-10",
+        "presupuesto": 7000.00,
+        "categoria": "Arte y Cultura"
+    },
+    {
+        "idevento": 7,
+        "nombre": "Conferencia Médica",
+        "fecha": "2024-01-20",
+        "presupuesto": 12000.00,
+        "categoria": "Salud"
+    },
+    {
+        "idevento": 8,
+        "nombre": "Festival de Música",
+        "fecha": "2024-02-25",
+        "presupuesto": 25000.00,
+        "categoria": "Entretenimiento"
+    },
+    {
+        "idevento": 9,
+        "nombre": "Reunión de Empresarios",
+        "fecha": "2024-03-15",
+        "presupuesto": 6000.00,
+        "categoria": "Negocios"
+    },
+    {
+        "idevento": 10,
+        "nombre": "Competencia Deportiva",
+        "fecha": "2024-04-05",
+        "presupuesto": 9000.00,
+        "categoria": "Deportes"
+    },
+    {
+        "idevento": 11,
+        "nombre": "Feria de Tecnología",
+        "fecha": "2024-05-20",
+        "presupuesto": 15000.00,
+        "categoria": "Tecnología"
+    },
+    {
+        "idevento": 12,
+        "nombre": "Seminario de Educación",
+        "fecha": "2024-06-10",
+        "presupuesto": 7000.00,
+        "categoria": "Educación"
+    },
+    {
+        "idevento": 13,
+        "nombre": "Fiesta de Fin de Año",
+        "fecha": "2024-07-30",
+        "presupuesto": 10000.00,
+        "categoria": "Celebraciones"
+    },
+    {
+        "idevento": 14,
+        "nombre": "Presentación de Libro",
+        "fecha": "2024-08-15",
+        "presupuesto": 5000.00,
+        "categoria": "Literatura"
+    },
+    {
+        "idevento": 15,
+        "nombre": "Conferencia de Ciencia y Tecnología",
+        "fecha": "2024-09-25",
+        "presupuesto": 12000.00,
+        "categoria": "Ciencia y Tecnología"
+    },
+    {
+        "idevento": 16,
+        "nombre": "Reunión de Networking",
+        "fecha": "2024-10-05",
+        "presupuesto": 3000.00,
+        "categoria": "Negocios"
+    },
+    {
+        "idevento": 17,
+        "nombre": "Desayuno Empresarial",
+        "fecha": "2024-11-20",
+        "presupuesto": 4000.00,
+        "categoria": "Negocios"
+    },
+    {
+        "idevento": 18,
+        "nombre": "Taller de Desarrollo Personal",
+        "fecha": "2024-12-10",
+        "presupuesto": 6000.00,
+        "categoria": "Desarrollo Personal"
+    },
+    {
+        "idevento": 19,
+        "nombre": "Exhibición de Moda",
+        "fecha": "2025-01-15",
+        "presupuesto": 8000.00,
+        "categoria": "Moda"
+    },
+    {
+        "idevento": 20,
+        "nombre": "Conferencia de Marketing Digital",
+        "fecha": "2025-02-20",
+        "presupuesto": 10000.00,
+        "categoria": "Marketing"
+    },
+    {
+        "idevento": 21,
+        "nombre": "Torneo de Ajedrez",
+        "fecha": "2025-03-05",
+        "presupuesto": 3000.00,
+        "categoria": "Deportes"
+    },
+    {
+        "idevento": 22,
+        "nombre": "Exposición de Fotografía",
+        "fecha": "2025-04-10",
+        "presupuesto": 5000.00,
+        "categoria": "Arte y Cultura"
+    },
+    {
+        "idevento": 23,
+        "nombre": "Seminario de Salud Mental",
+        "fecha": "2025-05-15",
+        "presupuesto": 7000.00,
+        "categoria": "Salud"
+    },
+    {
+        "idevento": 24,
+        "nombre": "Festival de Cine Independiente",
+        "fecha": "2025-06-20",
+        "presupuesto": 12000.00,
+        "categoria": "Cine"
+    },
+    {
+        "idevento": 25,
+        "nombre": "Reunión de Club de Lectura",
+        "fecha": "2025-07-25",
+        "presupuesto": 2000.00,
+        "categoria": "Literatura"
+    },
+    {
+        "idevento": 26,
+        "nombre": "Seminario de Negocios Internacionales",
+        "fecha": "2025-08-10",
+        "presupuesto": 15000.00,
+        "categoria": "Negocios"
+    },
+    {
+        "idevento": 27,
+        "nombre": "Feria de Artesanías",
+        "fecha": "2025-09-20",
+        "presupuesto": 6000.00,
+        "categoria": "Arte y Cultura"
+    },
+    {
+        "idevento": 28,
+        "nombre": "Conferencia de Ciencias Sociales",
+        "fecha": "2025-10-05",
+        "presupuesto": 8000.00,
+        "categoria": "Ciencias Sociales"
+    },
+    {
+        "idevento": 29,
+        "nombre": "Torneo de Golf",
+        "fecha": "2025-11-15",
+        "presupuesto": 10000.00,
+        "categoria": "Deportes"
+    },
+    {
+        "idevento": 30,
+        "nombre": "Fiesta de Halloween",
+        "fecha": "2025-12-31",
+        "presupuesto": 5000.00,
+        "categoria": "Celebraciones"
+    }
+]

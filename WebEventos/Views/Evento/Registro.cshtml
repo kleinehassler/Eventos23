@@ -1,0 +1,163 @@
+﻿@model EventoModel
+@{
+    ViewData["Title"] = "Listado de Eventos";
+}
+
+
+<div class="container">
+    <div class="section">
+        <h5 class="pagetitle">Nuevo Evento</h5>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="section">
+
+        <input type="hidden" id="Idevento" value="@Model.evento.data.Idevento">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="mdi mdi-account-outline prefix"></i>
+                <input id="Nombre" type="text" class="validate" value="@Model.evento.data.Nombre">
+                <label for="Nombre">Nombre</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="IdtipoEvento">
+                    <option value="" disabled>Choose your option</option>
+                    @foreach (var item in Model.lista_tipo_evento.data)
+                    {
+                        @if (item.IdtipoEvento == Model.evento.data.IdtipoEvento)
+                        {
+                            <option selected value="@item.IdtipoEvento">@item.Nombre</option>
+
+                        }
+                        else
+                        {
+                            <option value="@item.IdtipoEvento">@item.Nombre</option>
+                        }
+
+                    }
+                </select>
+                <label>Select</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="mdi mdi-clock-outline prefix"></i>
+                <input type="text" id="DateFecha" class="datepicker datepicker1" value="@(Model.evento.data.Fecha==null?"":((DateTime) Model.evento.data.Fecha).ToString("yyyy-MM-dd"))">
+                <label for="DateFecha">Fecha</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="mdi mdi-clock-outline prefix"></i>
+                <input type="text" id="DateHora" class="timepicker timepicker1" value="@(Model.evento.data.Fecha==null?"":((DateTime) Model.evento.data.Fecha).ToString("hh:mm"))">
+                <label for="DateHora">Hora</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="mdi mdi-cellphone prefix"></i>
+                <input id="Presupuesto" type="text" class="validate" value="@Model.evento.data.Presupuesto">
+                <label for="Presupuesto">Presupuesto</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="">
+                <a id="btnGrabar" class="waves-effect waves-light btn-large bg-primary ">Guardar</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="modal_general" class="modal red bottom-sheet">
+    <div class="modal-content white-text">
+        <h4>Error</h4>
+        <p>Texto</p>
+    </div>
+</div>
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".modal").modal();
+        $("select").formSelect();
+        $("#DateFecha").datepicker({
+            format: "yyyy-mm-dd",
+            autoClose: true
+        });
+        $("#DateHora").timepicker({
+            twelveHour: false,
+            autoClose: true
+        });
+        $("#btnGrabar").click(function () {
+
+            //Validacion del lado del cliente
+            if ($("#Nombre").val() == "") {
+                $('#modal_general h4').html('Validacion de Datos');
+                $('#modal_general p').html("Debe ingresar el nombre del evento");
+                $('#modal_general').modal('open');
+                return;
+            }
+
+            // Datos de inicio de sesión
+            if ($("#Idevento").val() > 0) {
+                var datos = {
+                    Idevento: $("#Idevento").val(),
+                    Nombre: $("#Nombre").val(),
+                    IdtipoEvento: $("#IdtipoEvento").val(),
+                    Fecha: $("#DateFecha").val() + 'T' + $("#DateHora").val() + ':00',
+                    Presupuesto: $("#Presupuesto").val()
+                };
+                // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                var loginUrl = "Actualizar";
+            } else {
+                var datos = {
+                    Nombre: $("#Nombre").val(),
+                    IdtipoEvento: $("#IdtipoEvento").val(),
+                    Fecha: $("#DateFecha").val() + 'T' + $("#DateHora").val() + ':00',
+                    Presupuesto: $("#Presupuesto").val()
+                };
+                // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                var loginUrl = "Crear";
+            }
+
+            // Realizar la solicitud POST utilizando jQuery
+            $.ajax({
+                url: loginUrl,
+                type: "POST",
+                contentType: "application/json", // Tipo de contenido que estás enviando (JSON)
+                data: JSON.stringify(datos), // Convertir los datos a formato JSON
+                success: function (response) {
+                    response = JSON.parse(response);
+                    console.log('respuesta del grabado de evento',response);
+                    if (response.success) {
+                        M.toast({ html: response.message, classes: ' teal lighten-2 white-text' });
+                        window.location.href = '@ViewData["HOST_URL"]/Evento/Ver?idevento=' + response.data.Idevento;
+                        return;
+                    } else {
+                        $('#modal_general h4').html('Error Grabar');
+                        $('#modal_general p').html(response.message);
+                        $('#modal_general').modal('open');
+                    }
+                },
+                error: function (error) {
+                    $('.preloader-background').delay(0).fadeOut('slow');
+                    $('.modal').modal('open');
+                    console.log(error);
+                }
+            });
+        });
+    });
+
+</script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "RFBbx/wnfFIfdrIHcRsyoaGHywiwzD/OUUU6tW19LT4TCGHqVaIYvooRyVGxD3yM90MyrZXqBb8TXDKQBKQJ+g==",
+  "success": true,
+  "projectFilePath": "C:\\ProyectoFinalEventos\\Entidades\\Entidades.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.14\\microsoft.entityframeworkcore.abstractions.7.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}

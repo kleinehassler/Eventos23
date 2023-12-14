@@ -1,0 +1,735 @@
+﻿@using Newtonsoft.Json;
+@model EventoModel
+@{
+    ViewData["Title"] = "Evento";
+}
+
+<div class="container">
+    <div class="section">
+        <h5 class="pagetitle">Administrar Evento</h5>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+
+        <div class="row ">
+            <div class="col s12 ">
+                <ul class="events">
+
+                    <li class="event-item card">
+                        <div class="info">
+                            <div class="title">@Model.evento.data.Nombre</div>
+                            <div class="time">@Model.evento.data.FechaFormato</div>
+
+                            <p>@Model.evento.data.Comentario</p><p class="entry">Presupuesto: <span>@Model.evento.data.Presupuesto</span></p>
+                            <span class="new badge blue lighten-2" data-badge-caption="">@Model.evento.data.TipoEvento</span>
+                            <div class="actions">
+                                <a href="@ViewData["HOST_URL"]/Evento/Registro?idevento=@Model.evento.data.Idevento">
+                                    <i class="mdi mdi-square-edit-outline"></i>
+                                </a>        <a href="#" class="btnEliminarEvento" idevento="@Model.evento.data.Idevento">
+                                    <i class="mdi mdi-delete"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+                <ul class="tabs z-depth-1 ">
+                    <li class="tab col s3  ">
+                        <a class="active "
+                           href="#tab-877775109-0">Invitados</a>
+                    </li>
+                    <li class="tab col s3 ">
+                        <a class=" "
+                           href="#tab-877775109-1">Grupos</a>
+                    </li>
+                    <li class="tab col s3 ">
+                        <a class=" "
+                           href="#tab-877775109-2">Mesas</a>
+                    </li>
+                    <li class="tab col s3 ">
+                        <a class=" "
+                           href="#tab-877775109-3">Menus</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+            <div id="tab-877775109-0" class="col s12   ">
+                <div class="tab-content z-depth-1  ">
+                    <a href="#" class="waves-effect btn primary-bg btnModalInvitado">
+                        <i class="mdi mdi-plus"></i>
+                    </a>
+                    <ul class="collection">
+                        @if (!(@Model.evento.data.invitados==null))
+                        {
+                            var i = 0;
+                            @foreach (var itemInvitado in @Model.evento.data.invitados) {
+                                
+                                <li class="collection-item ">
+                                    <span class="title">@itemInvitado.Nombres @itemInvitado.Apellidos</span>
+                                    <a href="#!" indice="@i" class="secondary-content btnEditar"><i class="mdi mdi-square-edit-outline"></i></a>
+                                    <a href="#!" indice="@i" tipo="Invitado" idregistro="@itemInvitado.Idinvitado" class="secondary-content btnEliminar"><i class="mdi mdi-delete"></i></a>
+                                </li>
+                                i++;
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="tab-877775109-1" class="col s12   ">
+                <div class="tab-content z-depth-1  ">
+                    <a href="#" class="waves-effect btn primary-bg btnModalDatos" tipo="Grupo">
+                        <i class="mdi mdi-plus"></i>
+                    </a>
+                    <ul class="collection">
+                        @if (!(@Model.evento.data.grupos == null))
+                        {
+                            var i = 0;
+                            @foreach (var itemGrupo in @Model.evento.data.grupos)
+                            {
+                                <li class="collection-item">
+                                    @itemGrupo.Nombre
+                                    <a href="#!" indice="@i" tipo="Grupo" class="secondary-content btnEditarRegistro"><i class="mdi mdi-square-edit-outline"></i></a>
+                                    <a href="#!" indice="@i" tipo="Grupo" idregistro="@itemGrupo.Idgrupo" class="secondary-content btnEliminar"><i class="mdi mdi-delete"></i></a>
+                                </li>
+                                i++;
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="tab-877775109-2" class="col s12   ">
+                <div class="tab-content z-depth-1  ">
+
+                    <a href="#" class="waves-effect btn primary-bg btnModalDatos " tipo="Mesa">
+                        <i class="mdi mdi-plus"></i>
+                    </a>
+                    <ul class="collection">  
+                        @if (!(@Model.evento.data.mesas == null))
+                        {
+                            var i = 0;
+                            @foreach (var itemMesa in @Model.evento.data.mesas)
+                            {
+
+                                <li class="collection-item">
+                                    @itemMesa.Nombre
+                                    <a href="#!" indice="@i" tipo="Mesa" class="secondary-content btnEditarRegistro"><i class="mdi mdi-square-edit-outline"></i></a>
+                                    <a href="#!" indice="@i" tipo="Mesa" idregistro="@itemMesa.Idmesa" class="secondary-content btnEliminar"><i class="mdi mdi-delete"></i></a>
+                                </li>
+                                i++;
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+
+            <div id="tab-877775109-3" class="col s12   ">
+                <div class="tab-content z-depth-1  ">
+                    <a href="#" class="waves-effect btn primary-bg btnModalDatos " tipo="Menu">
+                        <i class="mdi mdi-plus"></i>
+                    </a>
+                    <ul class="collection">
+                        @if (!(@Model.evento.data.menus == null))
+                        {
+                            var i = 0;
+                            @foreach (var itemMenu in @Model.evento.data.menus)
+                            {
+                                <li class="collection-item">
+                                    @itemMenu.Nombre
+                                    <a href="#!" indice="@i" tipo="Menu" class="secondary-content btnEditarRegistro"><i class="mdi mdi-square-edit-outline"></i></a>
+                                    <a href="#!" indice="@i" tipo="Menu" idregistro="@itemMenu.Idmenu" class="secondary-content btnEliminar"><i class="mdi mdi-delete"></i></a>
+                                </li>
+                                i++;
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<div id="modal1471843757" class="modal  bottom-sheet">
+    <div class="modal-content ">
+        <form id="formInvitado">
+        <h4>Nuevo Invitado</h4>
+        <input type="hidden" id="Idinvitado" value="0">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi mdi-account-outline prefix"></i>
+                    <input id="Nombres" type="text" class="validate" value="">
+                <label for="Nombres" class="">Nombre</label>
+                </div>
+            </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="mdi mdi-account-outline prefix"></i>
+                <input id="Apellidos" type="text" class="validate" value="">
+                <label for="Apellidos" class="">Apellidos</label>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi mdi-cellphone prefix"></i>
+                <input id="Telefono" type="text" class="validate" value="">
+                <label for="Telefono">Telefono</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi mdi-email-outline prefix"></i>
+                <input id="Correo" type="email" class="validate" value="">
+                <label for="Correo">Correo</label>
+                </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="mdi mdi-account-outline prefix"></i>
+                <input id="Direccion" type="text" class="validate" value="">
+                <label for="Direccion" class="">Direccion</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <label>
+                    Sexo
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="Sexo" checked="checked" value="Hombre">
+                    <span>Hombre</span>
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="Sexo" value="Mujer">
+                    <span>Mujer</span>
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="Sexo" value="Otro">
+                    <span>Otro</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <label>
+                    Tipo
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="TipoInvitado" checked="checked" value="Adulto">
+                    <span>Adulto</span>
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="TipoInvitado" value="Niño">
+                    <span>Niño</span>
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="TipoInvitado" value="Bebé">
+                    <span>Bebé</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="Idmesa">
+                    <option value="" disabled>Selecciona una mesa</option>
+                    @if (!(@Model.evento.data.mesas == null))
+                        {
+                    @foreach (var itemMesa in @Model.evento.data.mesas)
+                    {
+                            <option value="@itemMesa.Idmesa">@itemMesa.Nombre</option>
+                    }
+                        }
+                </select>
+                <label>Mesa</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="Idgrupo">
+                    <option value="" disabled>Selecciona un grupo</option>
+                    @if (!(@Model.evento.data.grupos == null))
+                        {
+                    @foreach (var itemGrupo in @Model.evento.data.grupos)
+                    {
+                            <option value="@itemGrupo.Idgrupo">@itemGrupo.Nombre</option>
+                    }
+                        }
+                </select>
+                <label>Grupo</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="Idmenu">
+                    <option value="" disabled>Selecciona un menu</option>
+                    @if (!(@Model.evento.data.menus == null))
+                        {
+                    @foreach (var itemMenu in @Model.evento.data.menus)
+                    {
+                            <option value="@itemMenu.Idmenu">@itemMenu.Nombre</option>
+                    }
+                        }
+                </select>
+                <label>Menu</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <label>
+                    Enviado
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                    <input type="radio" name="InvitacionEnviada" value="SI">
+                    <span>SI</span>
+                </label>
+            </div>
+            <div class="col s3">
+                <label>
+                        <input type="radio" name="InvitacionEnviada" checked="checked" value="NO">
+                    <span>NO</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4" style="padding:0!important">
+                <label>
+                    <input type="radio" name="Estado" value="Confirmado">
+                    <span>Confirmado</span>
+                </label>
+            </div>
+            <div class="col s4" style="padding:0!important">
+                <label>
+                    <input type="radio" name="Estado" checked="checked" value="En espera">
+                    <span>En espera</span>
+                </label>
+            </div>
+            <div class="col s4" style="padding:0!important">
+                <label>
+                    <input type="radio" name="Estado" value="Rechazado">
+                    <span>Rechazado</span>
+                </label>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer ">
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancelar</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="btnGrabar">Guardar</a>
+    </div>
+</div>
+
+<div id="modalDatos" class="modal  bottom-sheet">
+    <div class="modal-content ">
+        <form id="formDatos">
+            <h4>Nuevo Registro</h4>
+            <input type="hidden" id="idregistro" value="0">
+            <input type="hidden" id="tipo" value="">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi mdi-account-outline prefix"></i>
+                    <input id="Nombre" type="text" class="validate" value="">
+                    <label for="Nombre" class="">Nombre</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer ">
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancelar</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="btnGrabarDatos">Guardar</a>
+    </div>
+</div>
+
+<div id="modal_general" class="modal red bottom-sheet">
+    <div class="modal-content white-text">
+        <h4>Error</h4>
+        <p>Texto</p>
+    </div>
+</div>
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+
+    var invitados = @Html.Raw(JsonConvert.SerializeObject(Model.evento.data.invitados));
+        var mesas = @Html.Raw(JsonConvert.SerializeObject(Model.evento.data.mesas));
+        var grupos = @Html.Raw(JsonConvert.SerializeObject(Model.evento.data.grupos));
+        var menus = @Html.Raw(JsonConvert.SerializeObject(Model.evento.data.menus));
+        console.log('invitados', invitados);
+        $(".modal").modal();
+        $(".tabs").tabs(0);
+        $("select").formSelect();
+
+        
+        $(".btnModalDatos").click(function () {
+            var tipo = this.getAttribute('tipo');
+            $("#tipo").val(tipo);
+            $('#modalDatos').modal('open');
+        });
+
+        $(".btnModalInvitado").click(function () {
+            $('#modal1471843757').modal('open');
+        });
+
+        
+
+        $("#btnGrabar").click(function () {
+
+            if ($("#Idinvitado").val() > 0) {
+                var datos = {
+                    Idevento: '@Model.evento.data.Idevento',
+                    Idinvitado: $("#Idinvitado").val(),
+                    Nombres: $("#Nombres").val(),
+                    Apellidos: $("#Apellidos").val(),
+                    Telefono: $("#Telefono").val(),
+                    Correo: $("#Correo").val(),
+                    Direccion: $("#Direccion").val(),
+                    Sexo: $('input[name="Sexo"]:checked').val(),
+                    TipoInvitado: $('input[name="TipoInvitado"]:checked').val(),
+                    Idgrupo: $("#Idgrupo").val(),
+                    Idmesa: $("#Idmesa").val(),
+                    Idmenu: $("#Idmenu").val(),
+                    InvitacionEnviada: $('input[name="InvitacionEnviada"]:checked').val(),
+                    Estado: $('input[name="Estado"]:checked').val(),
+                };
+                // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                var loginUrl = "@ViewData["HOST_URL"]/Evento/EditarInvitado";
+                
+            }else{
+                var datos = {
+                    Idevento: '@Model.evento.data.Idevento',
+                    Nombres: $("#Nombres").val(),
+                    Apellidos: $("#Apellidos").val(),
+                    Telefono: $("#Telefono").val(),
+                    Correo: $("#Correo").val(),
+                    Direccion: $("#Direccion").val(),
+                    Sexo: $('input[name="Sexo"]:checked').val(),
+                    TipoInvitado: $('input[name="TipoInvitado"]:checked').val(),
+                    Idgrupo: $("#Idgrupo").val(),
+                    Idmesa: $("#Idmesa").val(),
+                    Idmenu: $("#Idmenu").val(),
+                    InvitacionEnviada: $('input[name="InvitacionEnviada"]:checked').val(),
+                    Estado: $('input[name="Estado"]:checked').val(),
+                };
+                // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                var loginUrl = "@ViewData["HOST_URL"]/Evento/CrearInvitado";
+            }
+            console.log('datos', datos);
+            console.log('loginUrl', loginUrl);
+
+            // Realizar la solicitud POST utilizando jQuery
+            $.ajax({
+                url: loginUrl,
+                type: "POST",
+                contentType: "application/json", // Tipo de contenido que estás enviando (JSON)
+                data: JSON.stringify(datos), // Convertir los datos a formato JSON
+                success: function (response) {
+                    response = JSON.parse(response);
+                    console.log(response);
+                    if (response.success) {
+                        M.toast({ html: response.message, classes: ' teal lighten-2 white-text' });
+                        window.location.href = '@ViewData["HOST_URL"]/Evento/Ver?idevento=@Model.evento.data.Idevento';
+                        return;
+                    } else {
+                        $('#modal_general h4').html('Error Grabar');
+                        $('#modal_general p').html(response.message);
+                        $('#modal_general').modal('open');
+                    }
+                },
+                error: function (error) {
+                    $('.preloader-background').delay(0).fadeOut('slow');
+                    $('.modal').modal('open');
+                    console.log(error);
+                }
+            });
+        });
+
+        $(".btnEditar").click(function (e) {
+            e.preventDefault();
+            var indice = this.getAttribute('indice');
+            invitado = invitados[indice];
+
+            console.log('invitado', invitado);
+            $('#modal1471843757').modal('open');
+
+            $('#formInvitado').trigger('reset');
+            $("#Idinvitado").val(invitado.Idinvitado);
+                $("#Nombres").val(invitado.Nombres);
+                $("#Nombres").focus();
+            $("#Apellidos").val(invitado.Apellidos);
+            $("#Apellidos").focus();
+            $("#Telefono").val(invitado.Telefono);
+            $("#Telefono").focus();
+            $("#Correo").val(invitado.Correo);
+            $("#Correo").focus();
+            $("#Direccion").val(invitado.Direccion);
+            $("#Direccion").focus();
+            $('input[name="Sexo"][value="' + invitado.Sexo + '"]').prop('checked', true);
+            $('input[name="TipoInvitado"][value="' + invitado.TipoInvitado + '"]').prop('checked', true);
+            $("#Idgrupo").val(invitado.Idgrupo);
+            $("#Idgrupo").focus();
+            $("#Idmesa").val(invitado.Idmesa);
+            $("#Idmesa").focus();
+            $("#Idmenu").val(invitado.Idmenu);
+            $("#Idmenu").focus();
+            $('input[name="InvitacionEnviada"][value="' + invitado.InvitacionEnviada + '"]').prop('checked', true);
+            $('input[name="Estado"][value="' + invitado.Estado + '"]').prop('checked', true);
+        });
+
+
+        $("#btnGrabarDatos").click(function () {
+            console.log('$("#idregistro").val()', $("#idregistro").val());
+            console.log('$("#tipo").val()', $("#tipo").val());
+            if($("#idregistro").val()==0){
+                var datos = {
+                    Idevento: '@Model.evento.data.Idevento',
+                    Nombre: $("#Nombre").val()
+                };
+                // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                if($("#tipo").val()=="Mesa")
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/CrearMesa";
+                if ($("#tipo").val() == "Grupo")
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/CrearGrupo";
+                if ($("#tipo").val() == "Menu")
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/CrearMenu";
+            }else{
+                // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                if ($("#tipo").val() == "Mesa") {
+                    
+                    var datos = {
+                        Idmesa: $("#idregistro").val(),
+                        Nombre: $("#Nombre").val()
+                    };
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/EditarMesa";
+                }
+                if ($("#tipo").val() == "Grupo") {
+
+                    var datos = {
+                        Idgrupo: $("#idregistro").val(),
+                        Nombre: $("#Nombre").val()
+                    };
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/EditarGrupo";
+                }
+                if ($("#tipo").val() == "Menu") {
+
+                    var datos = {
+                        Idmenu: $("#idregistro").val(),
+                        Nombre: $("#Nombre").val()
+                    };
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/EditarMenu";
+                }
+            }
+            console.log('datos', datos);
+                console.log('loginUrl', loginUrl);
+
+            // Realizar la solicitud POST utilizando jQuery
+            $.ajax({
+                url: loginUrl,
+                type: "POST",
+                contentType: "application/json", // Tipo de contenido que estás enviando (JSON)
+                data: JSON.stringify(datos), // Convertir los datos a formato JSON
+                success: function (response) {
+                    response = JSON.parse(response);
+                    console.log(response);
+                    if (response.success) {
+                        M.toast({ html: response.message, classes: ' teal lighten-2 white-text' });
+                        window.location.href = '@ViewData["HOST_URL"]/Evento/Ver?idevento=@Model.evento.data.Idevento';
+                        return;
+                    } else {
+                        $('#modal_general h4').html('Error Grabar');
+                        $('#modal_general p').html(response.message);
+                        $('#modal_general').modal('open');
+                    }
+                },
+                error: function (error) {
+                    $('.preloader-background').delay(0).fadeOut('slow');
+                    $('.modal').modal('open');
+                    console.log(error);
+                }
+            });
+        });
+
+        $(".btnEditarRegistro").click(function (e) {
+
+            e.preventDefault();
+            var indice = this.getAttribute('indice');
+            var tipo = this.getAttribute('tipo');
+
+            $('#modalDatos').modal('open');
+
+            if(tipo=="Grupo"){
+                $('#formDatos').trigger('reset');
+                registro = grupos[indice];
+                $("#tipo").val("Grupo");
+                $("#idregistro").val(registro.Idgrupo);
+                $("#Nombre").val(registro.Nombre);
+                $("#Nombre").focus();            
+            }
+
+            if (tipo == "Mesa") {
+                $('#formDatos').trigger('reset');
+                registro = mesas[indice];
+                $("#tipo").val("Mesa");
+                $("#idregistro").val(registro.Idmesa);
+                $("#Nombre").val(registro.Nombre);
+                $("#Nombre").focus();
+            }
+
+            if (tipo == "Menu") {
+                $('#formDatos').trigger('reset');
+                registro = menus[indice];
+                $("#tipo").val("Menu");
+                $("#idregistro").val(registro.Idmenu);
+                $("#Nombre").val(registro.Nombre);
+                $("#Nombre").focus();
+            }
+            
+        });
+
+        $(".btnEliminar").click(function (e) {
+            e.preventDefault();
+            console.log(this);
+            var tipo = this.getAttribute('tipo');
+            var idregistro = this.getAttribute('idregistro');
+
+            if(tipo=="Invitado"){
+                // Datos de inicio de sesión
+                var datos = {
+                        idinvitado: idregistro
+                };
+                var loginUrl = "@ViewData["HOST_URL"]/Evento/EliminarInvitado";
+            }
+            if (tipo == "Grupo") {
+                // Datos de inicio de sesión
+                var datos = {
+                    idgrupo: idregistro
+                };
+                var loginUrl = "@ViewData["HOST_URL"]/Evento/EliminarGrupo";
+            }
+            if (tipo == "Mesa") {
+                // Datos de inicio de sesión
+                var datos = {
+                    idmesa: idregistro
+                };
+                var loginUrl = "@ViewData["HOST_URL"]/Evento/EliminarMesa";
+            }
+            if (tipo == "Menu") {
+                // Datos de inicio de sesión
+                var datos = {
+                    idmenu: idregistro
+                };
+                var loginUrl = "@ViewData["HOST_URL"]/Evento/EliminarMenu";
+            }
+            console.log(datos);
+            console.log(loginUrl);
+
+            if (idregistro > 0) {
+                if (confirm('¿Estás seguro de que deseas eliminar este elemento?')) {
+                    // Si el usuario confirma, elimina el elemento
+                    // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+
+                    // Realizar la solicitud POST utilizando jQuery
+                    $.ajax({
+                        url: loginUrl,
+                        type: "POST",
+                        contentType: "application/json", // Tipo de contenido que estás enviando (JSON)
+                        data: JSON.stringify(datos), // Convertir los datos a formato JSON
+                        success: function (response) {
+                            response = JSON.parse(response);
+                            console.log(response);
+                            if (response.success) {
+                                M.toast({ html: response.message, classes: ' teal lighten-2 white-text' });
+                                location.reload(true);
+                                return;
+                            } else {
+                                $('#modal_general h4').html('Error Grabar');
+                                $('#modal_general p').html(response.message);
+                                $('#modal_general').modal('open');
+                            }
+                        },
+                        error: function (error) {
+                            $('.preloader-background').delay(0).fadeOut('slow');
+                            $('.modal').modal('open');
+                            console.log(error);
+                        }
+                    });
+                }
+            }
+        });
+
+        $(".btnEliminarEvento").click(function (e) {
+            e.preventDefault();
+            console.log(this);
+            var idevento = this.getAttribute('idevento');
+            // Datos de inicio de sesión
+            var datos = {
+                Idevento: idevento
+            };
+            console.log(datos);
+
+            if (idevento > 0){
+                if (confirm('¿Estás seguro de que deseas eliminar este elemento?')) {
+                // Si el usuario confirma, elimina el elemento
+                    // URL de la API para iniciar sesión (reemplaza con tu propia URL)
+                    var loginUrl = "@ViewData["HOST_URL"]/Evento/Eliminar";
+
+                    // Realizar la solicitud POST utilizando jQuery
+                    $.ajax({
+                        url: loginUrl,
+                        type: "POST",
+                        contentType: "application/json", // Tipo de contenido que estás enviando (JSON)
+                        data: JSON.stringify(datos), // Convertir los datos a formato JSON
+                        success: function (response) {
+                            response = JSON.parse(response);
+                            console.log(response);
+                            if (response.success) {
+                                M.toast({ html: response.message, classes: ' teal lighten-2 white-text' });
+                                window.location.href = '@ViewData["HOST_URL"]/Evento';
+                                return;
+                            } else {
+                                $('#modal_general h4').html('Error Grabar');
+                                $('#modal_general p').html(response.message);
+                                $('#modal_general').modal('open');
+                            }
+                        },
+                        error: function (error) {
+                            $('.preloader-background').delay(0).fadeOut('slow');
+                            $('.modal').modal('open');
+                            console.log(error);
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+</script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->

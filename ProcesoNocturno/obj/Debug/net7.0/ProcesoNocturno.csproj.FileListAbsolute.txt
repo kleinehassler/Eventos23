@@ -1,0 +1,6 @@
+C:\ProyectoFinalEventos\ProcesoNocturno\obj\Debug\net7.0\ProcesoNocturno.csproj.AssemblyReference.cache
+C:\ProyectoFinalEventos\ProcesoNocturno\obj\Debug\net7.0\ProcesoNocturno.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinalEventos\ProcesoNocturno\obj\Debug\net7.0\ProcesoNocturno.AssemblyInfoInputs.cache
+C:\ProyectoFinalEventos\ProcesoNocturno\obj\Debug\net7.0\ProcesoNocturno.AssemblyInfo.cs
+C:\ProyectoFinalEventos\ProcesoNocturno\obj\Debug\net7.0\ProcesoNocturno.csproj.CoreCompileInputs.cache
+C:\ProyectoFinalEventos\ProcesoNocturno\obj\Debug\net7.0\ProcesoNocturno.sourcelink.json
